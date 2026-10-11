@@ -28,7 +28,6 @@ print(z)
 name = "Siraj"
 print(name)
 
-
 #------list ------
 my_list = ["Siraj", 21, "Uog"]
 print(my_list)
