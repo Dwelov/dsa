@@ -1,3 +1,4 @@
+from ast import Interpolation
 fruits = ["apple", "kiwi", "banana"]
 
 print(fruits)
@@ -52,3 +53,13 @@ print("apple" in fruits)
 print(fruits[1:3])  # ['kiwi', 'cherry']
 print(fruits[:2])   # ['apple', 'kiwi']
 print(fruits[2:])   # ['cherry', 'grape']
+
+# ----- dynamic list creations --------
+
+student_list = []
+
+for i in range(5):
+    student = input("Enter student name: ")
+    student_list.append(student)    
+
+print(student_list)
