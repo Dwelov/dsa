@@ -23,8 +23,6 @@ public class Main {
         arrayListOperations.contains(5);
         arrayListOperations.remove(5);
         arrayListOperations.toArray();
-        arrayListOperations.clear();
-       
-    }
-    
+        arrayListOperations.clear();  
+    }    
 }
