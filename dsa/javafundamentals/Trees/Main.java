@@ -1,9 +1,5 @@
 package Trees;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
-
 public class Main {
 
     public static void main(String[] args) {
@@ -17,16 +13,19 @@ public class Main {
         root.right.left = new TreeNode(6);
         root.right.right = new TreeNode(7);
 
-        // level order printing
-        Queue<TreeNode> q = new LinkedList<>(List.of(root));
-        while (!q.isEmpty()) {
-            TreeNode n = q.poll();
-            if (n != null) {
-                System.out.print(n.data + " ");
-                q.add(n.left);
-                q.add(n.right);
-            }
-        }
+        // // level order printing
+        // Queue<TreeNode> q = new LinkedList<>(List.of(root));
+        // while (!q.isEmpty()) {
+        //     TreeNode n = q.poll();
+        //     if (n != null) {
+        //         System.out.print(n.data + " ");
+        //         q.add(n.left);
+        //         q.add(n.right);
+        //     }
+        // }
+        // System.out.println();
+
+        TreePrinter.printPyramid(root);
 
         // printing traversals
         System.out.println("Preorder Traversal: ");
