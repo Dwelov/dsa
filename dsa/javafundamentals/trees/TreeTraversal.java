@@ -14,6 +14,7 @@ public class TreeTraversal {
         List<String> order = new ArrayList<>();
         preOrder(root, order);
         System.out.println("Preorder  : " + String.join("-", order));
+        printTreeInOrder(root, Order.PREORDER);
     }
 
     private static void preOrder(Node root, List<String> order){
@@ -32,6 +33,7 @@ public class TreeTraversal {
         List<String> order = new ArrayList<>();
         inOrder(root, order);
         System.out.println("Inorder   : " + String.join("-", order));
+        printTreeInOrder(root, Order.INORDER);
     }
 
     private static void inOrder(Node root, List<String> order){
@@ -50,6 +52,7 @@ public class TreeTraversal {
         List<String> order = new ArrayList<>();
         postOrder(root, order);
         System.out.println("Postorder : " + String.join("-", order));
+        printTreeInOrder(root, Order.POSTORDER);
     }
 
     private static void  postOrder(Node root, List<String> order){
@@ -59,6 +62,58 @@ public class TreeTraversal {
         postOrder(root.left, order);
         postOrder(root.right, order);
         order.add(root.data);
+    }
+
+    // Prints the tree with its nodes listed in the given traversal order.
+    // The indentation shows the depth of each node, so the shape of the tree
+    // is still visible while the lines follow the traversal order.
+    private enum Order {
+        PREORDER, INORDER, POSTORDER
+    }
+
+    private static void printTreeInOrder(Node root, Order order){
+        List<String> lines = new ArrayList<>();
+        String name;
+
+        switch (order) {
+            case PREORDER:
+                name = "preorder";
+                break;
+            case INORDER:
+                name = "inorder";
+                break;
+            default:
+                name = "postorder";
+                break;
+        }
+
+        collectTreeInOrder(root, 0, order, lines);
+        System.out.println("Tree (" + name + "):");
+        for (String line : lines) {
+            System.out.println(line);
+        }
+    }
+
+    private static void collectTreeInOrder(Node root, int depth, Order order, List<String> lines){
+        if(root == null){
+            return;
+        }
+
+        if(order == Order.PREORDER){
+            lines.add(sp(depth * 2) + root.data);
+        }
+
+        collectTreeInOrder(root.left, depth + 1, order, lines);
+
+        if(order == Order.INORDER){
+            lines.add(sp(depth * 2) + root.data);
+        }
+
+        collectTreeInOrder(root.right, depth + 1, order, lines);
+
+        if(order == Order.POSTORDER){
+            lines.add(sp(depth * 2) + root.data);
+        }
     }
 
     // Prints the tree in a 2D ASCII layout, where each node is drawn above
