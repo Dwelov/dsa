@@ -122,15 +122,22 @@ public class LinkedList {
 
     }
 
-    void delete(int val) {
-        Node current = head;
+  void delete(int val) {
+    if (head == null) return;
 
-        while (current != null) {
-            if (current.value == val) {
-                current.next = current.next.next;
-                return;
-            }
-        }
+    if (head.value == val) {          // value is in the first node
+        head = head.next;
+        return;
     }
+
+    Node current = head;
+    while (current.next != null) {
+        if (current.next.value == val) {         // look one node ahead
+            current.next = current.next.next;    // skip it
+            return;
+        }
+        current = current.next;                  // move forward
+    }
+}
 
 }
