@@ -68,8 +68,7 @@ public class ArrayQueue {
     public int front() {
         if (isEmpty()) {
             System.out.println("Queue is Empty!");
-            return -1;
-        }
+            return -1;        }
         return queue[front];
     }
 
