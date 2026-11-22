@@ -51,3 +51,7 @@ print(4 in a) # O(n)
 # slicing 
 print(a[1:4])
 
+# traversing in the lists
+
+for i in a:
+    print(i, end = " ")
